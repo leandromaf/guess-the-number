@@ -29,7 +29,7 @@ if __name__ == '__main__':
 					print("Sorry, but your number is bigger than mine ...")
 				elif direction < 0 :
 					# the number provided by the user is lower than the choosen by the computer
-					print("Sorry, but your number is smallers than mine ...")
+					print("Sorry, but your number is smaller than mine ...")
 				else:
 					# the number has been guessed
 					guessed = True
@@ -44,6 +44,7 @@ if __name__ == '__main__':
 				# make a guess
 				number = guesser.guess()
 				directionInput = "x"
+				# while loop until the users give a valid direction
 				while directionInput != "+" and directionInput != "-" and directionInput != "=":
 					directionInput = input("Is your number bigger (+), smaller (-) or equal (=) than "+str(number)+" ? : ")
 				if directionInput == "=":
@@ -51,6 +52,7 @@ if __name__ == '__main__':
 					print("Great! I am the best!")
 				elif directionInput == "+" or directionInput == "-" :
 					print("Uh! I will try again")
+					# update the information of the agent giving the direction for the search
 					guesser.update(directionInput)
 		
 

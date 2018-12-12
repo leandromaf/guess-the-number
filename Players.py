@@ -36,11 +36,11 @@ class Guesser:
 	def guess(self):
 		return self.middle
 
-	# private method to update the middle
+	# private method to update the middle according to the left and right numbers
 	def __updateMiddle(self):
 		self.middle = int((self.left + self.right)/2)
 
-	# it performs a binary search
+	# it updates the state of the agent that performs a binary search incrementally
 	def update(self,direction):
 		
 		if direction == "+":
