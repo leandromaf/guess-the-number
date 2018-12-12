@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Players import Chooser
-
+from Players import Guesser
+import pdb
 
 if __name__ == '__main__':
 
@@ -36,7 +37,19 @@ if __name__ == '__main__':
 					print("My number is "+str(player.getNumber())+" ! ")
 			
 		elif option == 2 :
-			
+			# creates an object of type Guesser that will try to guess the number making a binary search
+			guesser = Guesser()
+			guessed = False
+			while  not guessed:
+				# make a guess
+				number = guesser.guess()
+				directionInput = input("Is your number bigger (+), smaller (-) or equal (=) than "+str(number)+" ? : ")
+				if directionInput == "=":
+					guessed = True
+					print("Great! I am the best!")
+				else :
+					print("Uh! I will try again")
+					guesser.update(directionInput)
 
 		else :
 			playing = False
