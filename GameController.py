@@ -43,13 +43,17 @@ if __name__ == '__main__':
 			while  not guessed:
 				# make a guess
 				number = guesser.guess()
-				directionInput = input("Is your number bigger (+), smaller (-) or equal (=) than "+str(number)+" ? : ")
+				directionInput = "x"
+				while directionInput != "+" and directionInput != "-" and directionInput != "=":
+					directionInput = input("Is your number bigger (+), smaller (-) or equal (=) than "+str(number)+" ? : ")
 				if directionInput == "=":
 					guessed = True
 					print("Great! I am the best!")
-				else :
+				elif directionInput == "+" or directionInput == "-" :
 					print("Uh! I will try again")
 					guesser.update(directionInput)
+		
+
 
 		else :
 			playing = False

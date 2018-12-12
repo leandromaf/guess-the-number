@@ -29,15 +29,16 @@ class Guesser:
 		# initilize a binary search setting the limits and the middle
 		self.left = 1
 		self.right = 100
-		self.middle = self.__getMiddleIncrement()
+		self.__updateMiddle()
 		
 
 	# just returns the value of the middle of the search process
 	def guess(self):
 		return self.middle
 
-	def __getMiddleIncrement(self):
-		return int((self.right - self.left)/2)
+	# private method to update the middle
+	def __updateMiddle(self):
+		self.middle = int((self.left + self.right)/2)
 
 	# it performs a binary search
 	def update(self,direction):
@@ -48,13 +49,13 @@ class Guesser:
 			# update the left
 			self.left = self.middle + 1
 			# update the middle
-			self.middle = self.middle + self.__getMiddleIncrement()
+			self.__updateMiddle()
 
 		elif direction == "-" :
 			# the number that the player though is smaller
 			# focus the search on the left side
 			self.right = self.middle - 1
-			self.middle = self.middle - self.__getMiddleIncrement()
+			self.__updateMiddle()
 
 
 
